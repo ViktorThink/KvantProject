@@ -10,9 +10,9 @@ def findBiggest(a):
     return biggestName
 
 def topCompanies(companies,number=5):         
-    topCompanies    
+    topCompanyDict={}  
     for i in range(number):
         s=findBiggest(companies)
-        topCompanies[s]=companies[s]
+        topCompanyDict[s]=companies[s]
         print(s+" "+str(companies[s]))
         del companies[s]

@@ -4,7 +4,7 @@ import openpyxl
 sheets = workbook.sheetnames
 sheet = workbook.active
 sheet2=sheets[1]
-a={}
+customerName="ROBELTA"
 for j in range(4,218888):
     if sheet["K"+str(j)].value == customerName:
         i= sheet["X"+str(j)].value
