@@ -1,10 +1,7 @@
-def calculateBaseMarigin(sheet, sheet2, indexes=range(4,218888)):
-    numerDict={}
-    for row in range(4,39256):
-        cost=sheet2["C"+str(row)].value
-        number=str(sheet2["B"+str(row)].value)
-        numerDict[number] = cost
-    
+def calculateBaseMarigin(sheet, sheet2, indexes=range(4,218888), numberDict=None):
+
+    if not numberDict:
+        numberDict = getNumberDict(sheet,sheet2)
     money=0
     for j in indexes:#(4,218888):
         basePrice= float(sheet["X"+str(j)].value)
@@ -14,8 +11,8 @@ def calculateBaseMarigin(sheet, sheet2, indexes=range(4,218888)):
     
         try:
             #print("Base price: "+str(basePrice*weight*kurs*0.001))
-            #print("Cost: "+str(int(numerDict[productNumber])*weight))
-            moneyAdd=float(basePrice*kurs*weight*0.001)-float(numerDict[productNumber])*weight
+            #print("Cost: "+str(int(numberDict[productNumber])*weight))
+            moneyAdd=float(basePrice*kurs*weight*0.001)-float(numberDict[productNumber])*weight
             #print(moneyAdd)
             money=money+moneyAdd
         except Exception as e:
@@ -25,3 +22,10 @@ def calculateBaseMarigin(sheet, sheet2, indexes=range(4,218888)):
     return money
 
 
+def getNumberDict(sheet,sheet2):
+    numberDict={}
+    for row in range(4,39256):
+        cost=sheet2["C"+str(row)].value
+        number=str(sheet2["B"+str(row)].value)
+        numberDict[number] = cost
+    return numberDict

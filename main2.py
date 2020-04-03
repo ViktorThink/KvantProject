@@ -6,7 +6,7 @@ import openpyxl
 from getAllProducts import getAllProducts
 
 from calculateBaseMarigin import getNumberDict
-#workbook = openpyxl.load_workbook(filename=r"C:\Users\Vikto\OneDrive\Dokument\Excel dokument\Stålaffären.xlsx")
+workbook = openpyxl.load_workbook(filename=r"C:\Users\Vikto\OneDrive\Dokument\Excel dokument\Stålaffären.xlsx")
 
 
 sheet = workbook.active

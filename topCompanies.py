@@ -14,5 +14,5 @@ def topCompanies(companies,number=5):
     for i in range(number):
         s=findBiggest(companies)
         topCompanyDict[s]=companies[s]
-        print(s+" "+str(companies[s]))
         del companies[s]
+    return topCompanyDict
